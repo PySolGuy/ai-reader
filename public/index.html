@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="menuBtn" class="icon" aria-label="Chapters" hidden>☰</button>
+    <h1 id="bookTitle">AI Reader</h1>
+    <button id="settingsBtn" class="icon" aria-label="Reader settings" aria-expanded="false" hidden>Aa</button>
+    <div id="controls" class="controls" hidden>
+      <label class="switch"><input type="checkbox" id="sumToggle" checked> Explanations</label>
+      <select id="level" aria-label="Explanation depth">
+        <option value="simple">Simple</option>
+        <option value="standard">Standard</option>
+        <option value="deep">Deep</option>
+      </select>
+      <span class="group">
+        <button id="smaller" aria-label="Smaller text">A−</button>
+        <button id="bigger" aria-label="Larger text">A+</button>
+      </span>
+      <button id="themeBtn" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <div id="demoBanner" class="banner" hidden>
+    Demo mode: these are placeholder explanations. Real summaries need an <code>ANTHROPIC_API_KEY</code> on the server.
+  </div>
+
+  <nav id="drawer" class="drawer" aria-label="Chapters">
+    <div class="drawer-head">
+      <strong>Chapters</strong>
+      <button id="closeDrawer" class="icon" aria-label="Close">✕</button>
+    </div>
+    <ol id="toc"></ol>
+    <button id="openOther" class="wide">Open another book</button>
+  </nav>
+  <div id="scrim" class="scrim" hidden></div>
+
+  <main id="landing" class="landing">
+    <h2>Read anything, understand everything.</h2>
+    <p>Open an ebook and get a short plain-language explanation under every paragraph.</p>
+    <div id="drop" class="drop">
+      <label class="btn primary">Choose a book
+        <input type="file" id="file" accept=".epub,.txt,.md" hidden>
+      </label>
+      <button id="sampleBtn" class="btn">Try a sample book</button>
+      <p class="hint">…or drag an .epub, .txt or .md file anywhere on this page.</p>
+    </div>
+    <p id="status" class="status" role="status"></p>
+  </main>
+
+  <main id="reader" class="reader" hidden></main>
+  <div class="progress"><div id="progressBar"></div></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ai-reader",
+  "version": "1.0.0",
+  "description": "Ebook reader that explains every paragraph with Claude",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": ">=0.50.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "jszip": "^3.10.1",
+    "multer": "^2.0.2",
+    "node-html-parser": "^7.0.1"
+  },
+  "license": "MIT"
+}
